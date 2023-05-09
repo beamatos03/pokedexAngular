@@ -1,0 +1,14 @@
+@font-face {
+  font-family: pokeFont;
+  src: url('font/PokemonSolidNormal.ttf');
+}
+
+.title{
+  font-family: pokefont;
+  color: #ffcc03;
+  -webkit-text-stroke: 3px #2a75bb; /* width and color */
+}
+
+.poke-info{
+  background-color: #2a75bb;
+}

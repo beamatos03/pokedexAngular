@@ -1,0 +1,65 @@
+<div class="display-3 mb-2 title text-center">
+  PokéDeX
+</div>
+<div class="container">
+  <div class="row justify-content-center align-items-center" style="min-height: 75vh; min-width: 75vh;">
+    <div class="col">
+        <div class="conteudo text-center bg-light rounded-5 shadow">
+        <div class="">
+          <div class="row justify-content-between">
+              <div class="col-md-2">
+      <button (click)="decrease()" class="btn btn-danger btn-lg">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+  <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+</svg>
+      </button>
+    </div>
+          <div class="col-md-8">
+            <div class="display-6">
+             {{formatarNum()}} - {{poke.name | titlecase}}
+            </div>
+          </div>
+          <div class="col-md-2">
+            <button (click)="increase()" class="btn btn-danger btn-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"viewBox="0 0 16 16">
+                <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/></svg>
+            </button>
+          </div>
+        </div>
+            <div class="row justify-content-center">
+              <div *ngFor="let type of getType()" class="col-sm-6 {{type}} m-2 rounded-circle d-flex">
+                <img [src]="getIcon(type)" width="50px">
+              </div>
+            </div>
+            <div class="row justify-content-around">
+              <div class="col-md-6">
+                <img [src]="pegarImagem()" [alt]="poke.name" width="300px">
+              </div>
+              <div class="col-lg-6 p-5">
+                    <table class="table table-bordered rounded-3 {{getType()[0]}} text-light">
+                      <tbody>
+                      <tr class="table-active text-light">
+                        <th scope="row" class="">Peso</th>
+                        <td [attr.colspan]="getAbilities().length">{{poke.weight/10}} m</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="">Altura</th>
+                        <td [attr.colspan]="getAbilities().length">{{poke.height/10}} m</td>
+                      </tr>
+                      <tr class="table-active text-light">
+                        <th scope="row" class="">Habilidades: </th>
+                        <td *ngFor="let ability of getAbilities()"><span>{{ability | titlecase}} </span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+              </div>
+              </div>
+
+            </div>
+
+          </div>
+
+      </div>
+    </div>
+
+    </div>
